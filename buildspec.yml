@@ -12,3 +12,4 @@ phases:
       - REPO_NAME=echo $CODEBUILD_SOURCE_REPO_URL | awk -F/ '{print $NF}' | sed 's/.git//')
       - echo "Branch name: $BRANCH_NAME"
       - echo "Repository name: $REPO_NAME"
+      - echo "my name"
