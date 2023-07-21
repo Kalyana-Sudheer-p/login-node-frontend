@@ -12,7 +12,6 @@ phases:
       # Clone the private GitHub repository
       - echo "Cloning GitHub repository..."
       - git clone --mirror https://github.com/Kalyana-Sudheer-p/login-node-frontend.git #https://github.com/Kalyana-Sudheer-p/webserver.git
-      - cd login-node-frontend.git
       - ls
       - git checkout -b "testing"
       - git remote add codecommit https://git-codecommit.us-east-1.amazonaws.com/v1/repos/test
