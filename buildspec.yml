@@ -8,10 +8,10 @@ phases:
   build:
     commands:
       # Access the branch name from the environment variable
-      - BRANCH_NAME=$(echo $CODEBUILD_WEBHOOK_HEAD_REF)
+      - BRANCH_NAME=$CODEBUILD_WEBHOOK_HEAD_REF
       - echo $BRANCH_NAME
       # Access the repository name from the environment variable
-      - REPO_NAME=$(echo $CODEBUILD_SOURCE_REPO_URL)
+      - REPO_NAME=$CODEBUILD_SOURCE_REPO_URL
       - echo $REPO_NAME
       # - echo "Branch name: $BRANCH_NAME"
       # - echo "Branch name: $BRANCH_NAME
