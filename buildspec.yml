@@ -11,6 +11,7 @@ phases:
 
       # Clone the private GitHub repository
       - echo "Cloning GitHub repository..."
+      - git init
       - git clone -b testing --single-branch https://github.com/Kalyana-Sudheer-p/login-node-frontend.git
       # - git clone --mirror https://github.com/Kalyana-Sudheer-p/login-node-frontend.git #https://github.com/Kalyana-Sudheer-p/webserver.git
       - ls
