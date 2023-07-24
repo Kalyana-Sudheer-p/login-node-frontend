@@ -9,7 +9,7 @@ phases:
     commands:
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - ls
-       - git clone https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
+       # - git clone https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
        - git init
        - git add -A
        - git config --global user.email "mahendarreddy.chilumula@gmail.com"
