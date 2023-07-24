@@ -12,12 +12,13 @@ phases:
        - git clone https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
        # - ls
        # - pwd
-       # - rm -r test/*
+       - rm -r test/*
        - shopt -s extglob  # Enable extended pattern matching
        - find . -mindepth 1 -maxdepth 1 ! -name 'test' -print0 | cpio -0pd test/
        - cd test
        - echo "after move"
        - ls
+       - cat sample.txt
        # - git checkout -b prod
        - git add .
        - git config --global user.email "mahendarreddy.chilumula@gmail.com"
