@@ -15,7 +15,8 @@ phases:
        - ls
        - rm -r test/*
        - cd test && ls
-       - mv "$pd" .
+       - mv "$pd"/* .
+       - pwd
        - ls
        # - shopt -s extglob  # Enable extended pattern matching
        # - find . -mindepth 1 -maxdepth 1 ! -name 'test' -print0 | cpio -0pd test/
