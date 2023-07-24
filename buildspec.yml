@@ -10,6 +10,7 @@ phases:
         
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
+       - git branch 
        # - ls
        - cd ..
        - git clone https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
@@ -19,9 +20,9 @@ phases:
        - mv "$pd"/* .
        # - pwd
        # - ls
-       - pipeline_description=$(aws codepipeline get-pipeline --name "testpipe")
-       - branch_name=$(echo "$pipeline_description" | jq -r '.pipeline.stages[0].actions[0].configuration.OutputVariables[0]')
-       - echo "Branch: $branch_name"
+       # - pipeline_description=$(aws codepipeline get-pipeline --name "testpipe")
+       # - branch_name=$(echo "$pipeline_description" | jq -r '.pipeline.stages[0].actions[0].configuration.OutputVariables[0]')
+       # - echo "Branch: $branch_name"
        # - git checkout -b "$BRANCH"
        # - git add .
        # - git config --global user.email "test"
