@@ -22,7 +22,7 @@ phases:
       - git add -A
       - git config --global user.email "mahendarreddy.chilumula@gmail.com"
       - git commit -m "testing"
-      - git stash
+      # - git stash
       # - git config --global user.email "mahendarreddy.chilumula@gmail.com"
       - git pull https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test --no-rebase 
       - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
