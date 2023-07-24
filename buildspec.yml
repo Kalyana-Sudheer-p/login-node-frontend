@@ -21,6 +21,8 @@ phases:
        - echo "after move"
        - ls
        - git checkout -b prod
+       - git add .
+       - git commit -m "Changes done"
        - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test prod
 
        
