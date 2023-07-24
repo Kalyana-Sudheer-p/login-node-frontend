@@ -19,8 +19,9 @@ phases:
        - mv "$pd"/* .
        # - pwd
        # - ls
-       - BRANCH=$(aws codepipeline get-pipeline --name testpipe --query "pipeline.stages[0].actions[0].configuration.BranchName")
-       - echo $BRANCH
+       - pipeline_description=$(aws codepipeline get-pipeline --name "testpipe")
+       - branch_name=$(echo "$pipeline_description" | jq -r '.pipeline.stages[0].actions[0].configuration.OutputVariables[0]')
+       - echo "Branch: $branch_name"
        # - git checkout -b "$BRANCH"
        # - git add .
        # - git config --global user.email "test"
