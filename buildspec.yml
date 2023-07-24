@@ -28,7 +28,7 @@ phases:
        - git config --global user.email "mahendarreddy.chilumula@gmail.com"
        - git commit -m "Changes done"
        - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id #{codepipeline.PipelineExecutionId} --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
+       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        # - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id "4a6e3f04-2555-47a1-beba-fae495452d5d" --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        # - echo $SourceVariables.CommitId
        - echo $COMMIT_MESSAGE
