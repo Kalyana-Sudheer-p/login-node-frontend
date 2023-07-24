@@ -29,7 +29,7 @@ phases:
        - git commit -m "Changes done"
        - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
        - echo $CODEBUILD_SOURCE_VERSION
-       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $CODEBUILD_RESOLVED_SOURCE_VERSION --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
+       # - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $CODEBUILD_RESOLVED_SOURCE_VERSION --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        - echo "Commit Message:$COMMIT_MESSAGE"
        # - echo $COMMIT_MESSAGE
 
