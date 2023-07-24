@@ -28,7 +28,7 @@ phases:
        - git config --global user.email "mahendarreddy.chilumula@gmail.com"
        - git commit -m "Changes done"
        - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-       - echo $CODEBUILD_WEBHOOK_EVENT
-       - echo $CODEBUILD_WEBHOOK_MERGE_COMMIT
-       - echo $CODEBUILD_WEBHOOK_PREV_COMMIT
+       - echo "Commit ID: $CODEBUILD_SOURCE_VERSION"
+       - echo "Commit Message: $COMMIT_MESSAGE"
+
 
