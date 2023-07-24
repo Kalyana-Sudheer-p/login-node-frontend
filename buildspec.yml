@@ -7,32 +7,32 @@ phases:
 #     #   bash: 5
   build:
     commands:
-      - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
-
+      # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
+       - ls
       # Clone the private GitHub repository
-      - echo "Cloning GitHub repository..."
-      - git init
-      - git clone -b testing --single-branch https://github.com/Kalyana-Sudheer-p/login-node-frontend.git
-      # - git clone --mirror https://github.com/Kalyana-Sudheer-p/login-node-frontend.git #https://github.com/Kalyana-Sudheer-p/webserver.git
-      - ls
-      # - git checkout --track "testing"
-      # - git checkout "testing"
-      - git remote add origin https://codecommit.us-east-1.amazonaws.com/v1/repos/test
-      - git checkout -b "testing"
-      - git add -A
-      - git config --global user.email "mahendarreddy.chilumula@gmail.com"
-      - git commit -m "testing"
-      # - git stash
+      # - echo "Cloning GitHub repository..."
+      # - git init
+      # - git clone -b testing --single-branch https://github.com/Kalyana-Sudheer-p/login-node-frontend.git
+      # # - git clone --mirror https://github.com/Kalyana-Sudheer-p/login-node-frontend.git #https://github.com/Kalyana-Sudheer-p/webserver.git
+      # - ls
+      # # - git checkout --track "testing"
+      # # - git checkout "testing"
+      # - git remote add origin https://codecommit.us-east-1.amazonaws.com/v1/repos/test
+      # - git checkout -b "testing"
+      # - git add -A
       # - git config --global user.email "mahendarreddy.chilumula@gmail.com"
-      - git config pull.ff only 
-      # - git pull https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test --allow-unrelated-histories
-      - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-      # # Access the branch name from the environment variable
-      # - BRANCH_NAME=$CODEBUILD_WEBHOOK_HEAD_REF
-      # - echo $BRANCH_NAME
-      # # Access the repository name from the environment variable
-      # - REPO_NAME=$CODEBUILD_SOURCE_REPO_URL
-      # - echo $REPO_NAME
-      # # - echo "Branch name: $BRANCH_NAME"
-      # # - echo "Branch name: $BRANCH_NAME
-      # # # - echo "my name"
+      # - git commit -m "testing"
+      # # - git stash
+      # # - git config --global user.email "mahendarreddy.chilumula@gmail.com"
+      # - git config pull.ff only 
+      # # - git pull https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test --allow-unrelated-histories
+      # - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
+      # # # Access the branch name from the environment variable
+      # # - BRANCH_NAME=$CODEBUILD_WEBHOOK_HEAD_REF
+      # # - echo $BRANCH_NAME
+      # # # Access the repository name from the environment variable
+      # # - REPO_NAME=$CODEBUILD_SOURCE_REPO_URL
+      # # - echo $REPO_NAME
+      # # # - echo "Branch name: $BRANCH_NAME"
+      # # # - echo "Branch name: $BRANCH_NAME
+      # # # # - echo "my name"
