@@ -13,8 +13,9 @@ phases:
        # - ls
        # - pwd
        - rm -r test/*
-       - shopt -s extglob  # Enable extended pattern matching
-       - find . -mindepth 1 -maxdepth 1 ! -name 'test' -print0 | cpio -0pd test/
+       # - shopt -s extglob  # Enable extended pattern matching
+       # - find . -mindepth 1 -maxdepth 1 ! -name 'test' -print0 | cpio -0pd test/
+       - mv .  --exclude='test' TEST/
        - cd test
        - echo "after move"
        - ls
