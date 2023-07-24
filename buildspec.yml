@@ -8,22 +8,30 @@ phases:
   build:
     commands:
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
-       - pwd
-       - ls
-       - pd=$(pwd)
+       # - pwd
+       # - ls
+       # - pd=$(pwd)
        - git clone https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-       - ls
-       - pwd
-       - mv -r "$m" .
-       - git init
+       # - ls
+       # - pwd
+       # - rm -r test/*
+       - shopt -s extglob  # Enable extended pattern matching
+       - mv !(test) test/
+       - cd test
        - git checkout -b prod
-       - git add -A
-       - git config --global user.email "mahendarreddy.chilumula@gmail.com"
-       - git commit -m "testing"
-       # - git remote add origin https://codecommit.us-east-1.amazonaws.com/v1/repos/test
-       - git config --global push.autoSetupRemote true
-       # - git pull https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test --rebase --skip
-       - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
+       - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test prod
+
+       
+       # - mv -r "$m" .
+       # - git init
+       # - git checkout -b prod
+       # - git add -A
+       # - git config --global user.email "mahendarreddy.chilumula@gmail.com"
+       # - git commit -m "testing"
+       # # - git remote add origin https://codecommit.us-east-1.amazonaws.com/v1/repos/test
+       # - git config --global push.autoSetupRemote true
+       # # - git pull https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test --rebase --skip
+       # - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
        
       # Clone the private GitHub repository
       # - echo "Cloning GitHub repository..."
