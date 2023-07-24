@@ -21,7 +21,7 @@ phases:
        # - ls
        - BRANCH=$(aws codepipeline get-pipeline --name MyDemoPipeline --query -r '.pipeline.stages[0].actions[0].configuration.BranchName'
 )
-       - echo "$BRANCH"
+       - echo $BRANCH
        # - git checkout -b "$BRANCH"
        # - git add .
        # - git config --global user.email "test"
