@@ -19,7 +19,8 @@ phases:
        - mv "$pd"/* .
        # - pwd
        # - ls
-       - BRANCH=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionReference" --output text)
+       - BRANCH=$(aws codepipeline get-pipeline --name MyDemoPipeline --query -r '.pipeline.stages[0].actions[0].configuration.BranchName'
+)
        - echo "$BRANCH"
        # - git checkout -b "$BRANCH"
        # - git add .
