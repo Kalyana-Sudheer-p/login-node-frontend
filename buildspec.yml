@@ -8,7 +8,7 @@ phases:
     commands:
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
-       - branch=$(aws codepipeline get-pipeline --name $pipeline_name --query pipeline.stages[0].actions[0].configuration.Branch)
+       - branch=$(aws codepipeline get-pipeline --name $pipeline_name --query pipeline.stages[0].actions[0].configuration.Branch | sed 's/"//g')
        - echo "$branch"
        - cd ..
        # - git clone -b testing https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
