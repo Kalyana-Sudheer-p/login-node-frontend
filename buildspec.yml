@@ -1,34 +1,23 @@
 version: 0.2
 
 phases:  
-#   # install:
-#     # runtime-versions:
-#     #   bash: 5
+  # install:
+  #   runtime-versions:
+  #     bash: 5
   build:
     commands:
         
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
-       # - git branch 
        - cd ..
-       - ls
-       # - cd 00
-       # - ls
-       - git clone https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-       # - ls
+       - git clone $(user_name):$(password)@git-codecommit.us-east-1.amazonaws.com/v1/repos/$(repo_name)
        - rm -r test/*
-       - cd test && ls
+       - cd test
        - mv "$pd"/* .
-       # - pwd
-       # - ls
-       # - pipeline_description=$(aws codepipeline get-pipeline --name "testpipe")
-       # - branch_name=$(echo "$pipeline_description" | jq -r '.pipeline.stages[0].actions[0].configuration.OutputVariables[0]')
-       # - echo "Branch: $branch_name"
-       # - git checkout -b "$BRANCH"
-       # - git add .
-       # - git config --global user.email "test"
-       # - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
-       # - git commit -m "$COMMIT_MESSAGE"
-       # - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
+       - git add .
+       - git config --global user.email "test"
+       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
+       - git commit -m "$COMMIT_MESSAGE"
+       - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
        
 
