@@ -7,8 +7,8 @@ phases:
 #     #   bash: 5
   build:
     commands:
-       - echo "run from testing"
-       - echo "run from testing"
+       # - echo "run from testing"
+       # - echo "run from testing"
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
        # - ls
@@ -21,7 +21,7 @@ phases:
        # - pwd
        # - ls
        
-       - git checkout -b testing
+       # - git checkout -b testing
        - git add .
        - git config --global user.email "test"
        - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
