@@ -13,7 +13,7 @@ phases:
        # - ls
        - cd ..
        - git clone -b testing https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-       # - ls
+       - ls
        - rm -r test/*
        - cd test && ls
        - mv "$pd"/* .
