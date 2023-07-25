@@ -3,14 +3,12 @@ version: 0.2
 phases:
 
 
-
-    
 #   # install:
 #     # runtime-versions:
 #     #   bash: 5
   build:
     commands:
- 
+       - echo "TESTING Branch modifird" 
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
        # - ls
