@@ -21,7 +21,7 @@ phases:
        # - pwd
        # - ls
        
-       - git checkout -b 
+       - git checkout -b testing
        - git add .
        - git config --global user.email "test"
        - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
