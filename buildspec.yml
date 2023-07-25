@@ -6,11 +6,11 @@ phases:
   #     bash: 5
   build:
     commands:
-       - repo_name = $(aws codepipeline get-pipeline --name testpipe --query pipeline.stages[0].actions[0].configuration.Branch)
+       - repo_name=$(aws codepipeline get-pipeline --name testpipe --query pipeline.stages[0].actions[0].configuration.Branch)
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
        - cd ..
-       - git clone $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
+       - git clone $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/"$repo_name"
        - rm -r test/*
        - cd test
        - mv "$pd"/* .
