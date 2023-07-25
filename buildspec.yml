@@ -10,7 +10,9 @@ phases:
        - pd=$(pwd)
        - branch=$(aws codepipeline get-pipeline --name $pipeline_name --query pipeline.stages[0].actions[0].configuration.Branch)
        - cd ..
-       - git clone -b $branch $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
+       - git clone -b testing https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos
+/test
+       # - git clone -b $branch $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
        - rm -r test/*
        - cd test
        - mv "$pd"/* .
