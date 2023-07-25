@@ -8,7 +8,7 @@ phases:
   build:
     commands:
        - echo "run from testing"
-       - echo "run from testing"
+       # - echo "run from testing"
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
        # - ls
