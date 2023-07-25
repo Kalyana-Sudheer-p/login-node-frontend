@@ -1,31 +1,18 @@
 version: 0.2
 
 phases:
-
-
-#   # install:
-#     # runtime-versions:
-#     #   bash: 5
+  # install:
+  #   runtime-versions:
+  #     bash: 5
   build:
     commands:
-       # - echo "TESTING Branch modifird" 
-      # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
-       - ls
-       - cd ..
-       - git clone -b testing https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test
-       - ls
+       - git clone -b $(branch) $(user_name):$(password)@git-codecommit.us-east-1.amazonaws.com/v1/repos/$(repo_name)
        - rm -r test/*
-       - cd test && ls
+       - cd test
        - mv "$pd"/* .
-       # - pwd
-       # - ls
-       
-       # - git checkout -b testing
        - git add .
        - git config --global user.email "test"
-       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
+       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name $(pipeline_name) --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        - git commit -m "$COMMIT_MESSAGE"
-       - git push https://sasi_1+1-at-358713093472:QBtFZu+Ep4BIVvRZp+oCg0P7uIWDIDvpHTSXOcYVBWY=@git-codecommit.us-east-1.amazonaws.com/v1/repos/test testing
-       # - echo $AWS_CODEPIPELINE_EXECUTION_ID
-       
+       - git push $(user_name):$(password)@git-codecommit.us-east-1.amazonaws.com/v1/repos/$(repo_name) $(branch)
