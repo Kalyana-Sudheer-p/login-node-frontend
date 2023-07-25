@@ -6,7 +6,7 @@ phases:
   #     bash: 5
   build:
     commands:
-       - repo_name=$(aws codepipeline get-pipeline --name testpipe --query pipeline.stages[0].actions[0].configuration.Branch)
+       - repo_name=$(aws codepipeline get-pipeline --name $pipeline_name --query pipeline.stages[0].actions[0].configuration.Branch)
       # - git config --global credential.helper '!f() { echo "username=oauth2"; echo "password=$GIT_TOKEN"; }; f'
        - pd=$(pwd)
        - cd ..
@@ -16,6 +16,6 @@ phases:
        - mv "$pd"/* .
        - git add .
        - git config --global user.email "test"
-       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name testpipe --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
+       - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name $pipeline_name --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        - git commit -m "$COMMIT_MESSAGE"
        - git push $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
