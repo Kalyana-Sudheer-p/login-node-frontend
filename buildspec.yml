@@ -25,4 +25,4 @@ phases:
        - git config --global user.email "$COMMIT_ID"
        - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name $pipeline_name --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        - git commit -m "$COMMIT_MESSAGE"
-       - git push codecommit::us-east-1://$repo_name $branch
+       - git push https://git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name $branch
