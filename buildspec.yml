@@ -16,6 +16,7 @@ phases:
        - git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
        # - git clone $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
        # - git clone codecommit::us-east-1://$repo_name
+       ## TESTING
        - rm -r $repo_name/*
        - cd $repo_name
        - git checkout $branch || git checkout -b $branch
