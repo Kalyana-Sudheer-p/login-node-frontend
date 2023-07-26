@@ -10,13 +10,11 @@ phases:
        - pd=$(pwd)
        - branch=$(aws codepipeline get-pipeline --name $pipeline_name --query pipeline.stages[0].actions[0].configuration.Branch | sed 's/"//g')
        - echo "$branch"
-       - cd ..
-       
-       # - git clone -b $branch $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
-       
-       - git clone $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
-       - rm -r test/*
-       - cd test
+       - cd ..       
+       # - git clone $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name
+       - git clone codecommit::us-east-1://$repo_name
+       - rm -r $repo_name/*
+       - cd $repo_name
        - git checkout $branch || git checkout -b $branch
        - mv "$pd"/* .
        - COMMIT_ID=$(aws codepipeline get-pipeline-execution --pipeline-name $pipeline_name --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionId" --output text)
@@ -24,4 +22,4 @@ phases:
        - git config --global user.email "$COMMIT_ID"
        - COMMIT_MESSAGE=$(aws codepipeline get-pipeline-execution --pipeline-name $pipeline_name --pipeline-execution-id $AWS_CODEPIPELINE_EXECUTION_ID --query "pipelineExecution.artifactRevisions[0].revisionSummary" --output text)
        - git commit -m "$COMMIT_MESSAGE"
-       - git push $user_name:$password@git-codecommit.us-east-1.amazonaws.com/v1/repos/$repo_name $branch
+       - git push codecommit::us-east-1://$repo_name $branch
