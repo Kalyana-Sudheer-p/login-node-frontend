@@ -1,3 +1,1 @@
-test
-modied text in source1
-this commit msg changed
+removed text in source1
